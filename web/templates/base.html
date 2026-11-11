@@ -2,16 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Product Delivery App{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Сервис доставки продуктов{% endblock %}</title>
     <link rel="stylesheet" href="/static/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
-        <h1>🚚 Product Delivery App</h1>
+        <h1>🚚 Сервис доставки продуктов</h1>
         <nav>
             <a href="/">Главная</a>
-            <a href="/logs">Лог активности</a>
+            <a href="/logs">История действий</a>
             <a href="/docs" target="_blank">API (Swagger)</a>
         </nav>
     </header>
@@ -19,7 +20,7 @@
         {% block content %}{% endblock %}
     </main>
     <footer>
-        <p>MVP: доставка продуктов · FastAPI · PostgreSQL</p>
+        <p>MVP: Учет доставки продуктов · FastAPI · PostgreSQL · 2026</p>
     </footer>
 </body>
 </html>

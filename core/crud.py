@@ -1,9 +1,10 @@
 from typing import List, Optional
-
+from sqlalchemy.orm import selectinload
 from sqlmodel import Session, select
 
 from core.exceptions import ProductNotFoundError, OrderNotFoundError
 from core.models import Product, Category, Customer, Order, OrderItem
+from typing import List, Optional
 
 
 # ---------- Category ----------
@@ -30,8 +31,11 @@ def create_product(
     return product
 
 
-def list_products(session: Session) -> List[Product]:
-    return list(session.exec(select(Product)).all())
+from sqlalchemy.orm import selectinload
+
+def list_orders(session: Session) -> List[Order]:
+    statement = select(Order).options(selectinload(Order.customer), selectinload(Order.items))
+    return list(session.exec(statement).all())
 
 
 def get_product(session: Session, product_id: int) -> Product:
@@ -77,6 +81,18 @@ def create_order(session: Session, customer_id: int, items: List[dict]) -> Order
     return order
 
 
+from sqlalchemy.orm import selectinload
+
+def list_products(session: Session) -> List[Product]:
+    statement = select(Product).options(selectinload(Product.category))
+    return list(session.exec(statement).all())
+
+
+def get_order(session: Session, order_id: int) -> Order:
+    order = session.get(Order, order_id)
+    if not order:
+        raise OrderNotFoundError(f"Заказ с id={order_id} не найден")
+    return order
 def list_orders(session: Session) -> List[Order]:
     return list(session.exec(select(Order)).all())
 
@@ -84,5 +100,6 @@ def list_orders(session: Session) -> List[Order]:
 def get_order(session: Session, order_id: int) -> Order:
     order = session.get(Order, order_id)
     if not order:
+        from core.exceptions import OrderNotFoundError
         raise OrderNotFoundError(f"Заказ с id={order_id} не найден")
     return order
