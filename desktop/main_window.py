@@ -17,7 +17,7 @@ from core import crud, service
 from core.exceptions import AppError
 from core.models import Order
 
-# --- НЕЖНЫЙ СВЕТЛЫЙ СТИЛЬ (QSS) ---
+
 STYLE_SHEET = """
 QMainWindow {
     background-color: #F8FAFC;
@@ -154,32 +154,32 @@ class MainWindow(QMainWindow):
 
         # Вкладка 1: Товары
         self.tab_main = QWidget()
-        self.tabs.addTab(self.tab_main, "📦 Товары")
+        self.tabs.addTab(self.tab_main, " Товары")
         self.setup_main_tab()
 
         # Вкладка 2: Клиенты и Категории
         self.tab_people = QWidget()
-        self.tabs.addTab(self.tab_people, "👥 Клиенты")
+        self.tabs.addTab(self.tab_people, " Клиенты")
         self.setup_people_tab()
 
         # Вкладка 3: Заказы
         self.tab_orders = QWidget()
-        self.tabs.addTab(self.tab_orders, "🛒 Заказы")
+        self.tabs.addTab(self.tab_orders, " Заказы")
         self.setup_orders_tab()
 
         # Вкладка 4: Графики
         self.tab_charts = QWidget()
-        self.tabs.addTab(self.tab_charts, "📊 Статистика")
+        self.tabs.addTab(self.tab_charts, " Статистика")
         self.setup_charts_tab()
 
         # Вкладка 5: Логи
         self.tab_logs = QWidget()
-        self.tabs.addTab(self.tab_logs, "📝 Лог активности")
+        self.tabs.addTab(self.tab_logs, " Лог активности")
         self.setup_logs_tab()
 
         # Вкладка 6: Справка
         self.tab_help = QWidget()
-        self.tabs.addTab(self.tab_help, "❓ Справка")
+        self.tabs.addTab(self.tab_help, " Справка")
         self.setup_help_tab()
 
         self.refresh_data()
@@ -231,7 +231,7 @@ class MainWindow(QMainWindow):
         grid.addWidget(self.stock_input, 1, 2)
         grid.addWidget(self.category_combo, 1, 3)
 
-        self.add_product_btn = QPushButton("➕ Добавить на склад")
+        self.add_product_btn = QPushButton(" Добавить на склад")
         self.add_product_btn.clicked.connect(self.add_product)
         grid.addWidget(self.add_product_btn, 2, 0, 1, 4)
 
@@ -246,7 +246,7 @@ class MainWindow(QMainWindow):
         table_header = QHBoxLayout()
         table_title = QLabel("Текущие остатки на складе")
         table_title.setStyleSheet("font-size: 16px; font-weight: bold; color: #0F172A;")
-        self.refresh_btn = QPushButton("🔄 Обновить")
+        self.refresh_btn = QPushButton(" Обновить")
         self.refresh_btn.setObjectName("SecondaryBtn")
         self.refresh_btn.clicked.connect(self.refresh_data)
         table_header.addWidget(table_title)
@@ -299,7 +299,7 @@ class MainWindow(QMainWindow):
         grid.addWidget(self.client_phone, 1, 1)
         grid.addWidget(self.client_address, 1, 2)
 
-        self.add_client_btn = QPushButton("👤 Добавить клиента")
+        self.add_client_btn = QPushButton(" Добавить клиента")
         self.add_client_btn.clicked.connect(self.add_client)
         grid.addWidget(self.add_client_btn, 2, 0, 1, 3)
 
@@ -314,7 +314,7 @@ class MainWindow(QMainWindow):
         self.cat_name = QLineEdit()
         self.cat_name.setPlaceholderText("Например: Молочные продукты")
         
-        self.add_cat_btn = QPushButton("📁 Добавить категорию")
+        self.add_cat_btn = QPushButton(" Добавить категорию")
         self.add_cat_btn.clicked.connect(self.add_category)
 
         cat_layout.addWidget(QLabel("Название категории:"))
@@ -354,7 +354,7 @@ class MainWindow(QMainWindow):
         grid.addWidget(self.order_product_combo, 1, 1)
         grid.addWidget(self.order_qty, 1, 2)
 
-        self.create_order_btn = QPushButton("🛒 Оформить заказ")
+        self.create_order_btn = QPushButton(" Оформить заказ")
         self.create_order_btn.clicked.connect(self.create_order)
         grid.addWidget(self.create_order_btn, 2, 0, 1, 3)
 
@@ -431,7 +431,7 @@ class MainWindow(QMainWindow):
         content_layout = QVBoxLayout(content)
         content_layout.setSpacing(20)
 
-        header = QLabel("📚 Руководство пользователя")
+        header = QLabel("Руководство пользователя")
         header.setStyleSheet("font-size: 24px; font-weight: bold; color: #4338CA;")
         content_layout.addWidget(header)
 
@@ -440,12 +440,12 @@ class MainWindow(QMainWindow):
         l1 = QVBoxLayout(block1)
         t1 = QLabel("1. Как добавить товар?")
         t1.setStyleSheet("font-size: 16px; font-weight: bold; color: #0F172A;")
-        d1 = QLabel("Перейдите на вкладку «📦 Товары». В карточке «Добавить новый товар» заполните поля:\n"
+        d1 = QLabel("Перейдите на вкладку « Товары». В карточке «Добавить новый товар» заполните поля:\n"
                     "• Название (например, Яблоки)\n"
                     "• Цена (только число, например 150.50)\n"
                     "• Количество (целое число)\n"
                     "Также можно выбрать категорию из списка.\n"
-                    "Нажмите кнопку «➕ Добавить на склад». Товар сразу появится в таблице ниже.")
+                    "Нажмите кнопку « Добавить на склад». Товар сразу появится в таблице ниже.")
         d1.setWordWrap(True)
         d1.setStyleSheet("font-size: 14px; color: #475569; line-height: 1.6;")
         l1.addWidget(t1)
@@ -457,7 +457,7 @@ class MainWindow(QMainWindow):
         l2 = QVBoxLayout(block2)
         t2 = QLabel("2. Как добавить клиента и категорию?")
         t2.setStyleSheet("font-size: 16px; font-weight: bold; color: #0F172A;")
-        d2 = QLabel("Перейдите на вкладку «👥 Клиенты».\n"
+        d2 = QLabel("Перейдите на вкладку « Клиенты».\n"
                     "• Для клиента заполните ФИО, телефон и адрес, затем нажмите «Добавить клиента».\n"
                     "• Для категории введите название и нажмите «Добавить категорию». После этого категорию можно выбрать при создании товара.")
         d2.setWordWrap(True)
@@ -471,7 +471,7 @@ class MainWindow(QMainWindow):
         l3 = QVBoxLayout(block3)
         t3 = QLabel("3. Как оформить заказ?")
         t3.setStyleSheet("font-size: 16px; font-weight: bold; color: #0F172A;")
-        d3 = QLabel("Перейдите на вкладку «🛒 Заказы». Выберите клиента из списка, товар, укажите количество "
+        d3 = QLabel("Перейдите на вкладку « Заказы». Выберите клиента из списка, товар, укажите количество "
                     "и нажмите «Оформить заказ». Система автоматически спишет товар со склада и добавит заказ в историю.")
         d3.setWordWrap(True)
         d3.setStyleSheet("font-size: 14px; color: #475569; line-height: 1.6;")
@@ -484,8 +484,8 @@ class MainWindow(QMainWindow):
         l4 = QVBoxLayout(block4)
         t4 = QLabel("4. Как посмотреть статистику и логи?")
         t4.setStyleSheet("font-size: 16px; font-weight: bold; color: #0F172A;")
-        d4 = QLabel("• Вкладка «📊 Статистика» показывает графики заказов за неделю и топ товаров.\n"
-                    "• Вкладка «📝 Лог активности» содержит историю всех действий (добавления, ошибки, заказы).")
+        d4 = QLabel("• Вкладка « Статистика» показывает графики заказов за неделю и топ товаров.\n"
+                    "• Вкладка « Лог активности» содержит историю всех действий (добавления, ошибки, заказы).")
         d4.setWordWrap(True)
         d4.setStyleSheet("font-size: 14px; color: #475569; line-height: 1.6;")
         l4.addWidget(t4)
@@ -513,17 +513,17 @@ class MainWindow(QMainWindow):
         try:
             with Session(engine) as session:
                 crud.create_product(session, name, float(price), int(stock or 0), category_id)
-            self.log(f"✅ Добавлен товар: {name}")
+            self.log(f" Добавлен товар: {name}")
             self.refresh_data()
             self.name_input.clear()
             self.price_input.clear()
             self.stock_input.clear()
         except AppError as e:
             QMessageBox.critical(self, "Ошибка", str(e))
-            self.log(f"❌ Ошибка: {e}")
+            self.log(f" Ошибка: {e}")
         except ValueError:
             QMessageBox.warning(self, "Ошибка", "Цена и количество должны быть числами.")
-            self.log("❌ Ошибка: неверный формат чисел")
+            self.log(" Ошибка: неверный формат чисел")
 
     def add_client(self):
         full_name = self.client_name.text().strip()
@@ -537,7 +537,7 @@ class MainWindow(QMainWindow):
         try:
             with Session(engine) as session:
                 crud.create_customer(session, full_name, phone, address)
-            self.log(f"✅ Добавлен клиент: {full_name}")
+            self.log(f" Добавлен клиент: {full_name}")
             QMessageBox.information(self, "Успех", f"Клиент {full_name} добавлен!")
             self.client_name.clear()
             self.client_phone.clear()
@@ -545,7 +545,7 @@ class MainWindow(QMainWindow):
             self.refresh_data()
         except AppError as e:
             QMessageBox.critical(self, "Ошибка", str(e))
-            self.log(f"❌ Ошибка: {e}")
+            self.log(f" Ошибка: {e}")
 
     def add_category(self):
         name = self.cat_name.text().strip()
@@ -556,13 +556,13 @@ class MainWindow(QMainWindow):
         try:
             with Session(engine) as session:
                 crud.create_category(session, name)
-            self.log(f"✅ Добавлена категория: {name}")
+            self.log(f" Добавлена категория: {name}")
             QMessageBox.information(self, "Успех", f"Категория '{name}' добавлена!")
             self.cat_name.clear()
             self.refresh_data()
         except AppError as e:
             QMessageBox.critical(self, "Ошибка", f"Ошибка: {e}")
-            self.log(f"❌ Ошибка: {e}")
+            self.log(f" Ошибка: {e}")
 
     def create_order(self):
         if self.order_client_combo.count() == 0 or self.order_product_combo.count() == 0:
@@ -582,13 +582,13 @@ class MainWindow(QMainWindow):
         try:
             with Session(engine) as session:
                 service.place_order(session, client_id, [{"product_id": product_id, "quantity": qty}])
-            self.log(f"✅ Оформлен заказ: клиент #{client_id}, товар #{product_id}, {qty} шт.")
+            self.log(f" Оформлен заказ: клиент #{client_id}, товар #{product_id}, {qty} шт.")
             QMessageBox.information(self, "Успех", "Заказ успешно оформлен!")
             self.order_qty.clear()
             self.refresh_data()
         except AppError as e:
             QMessageBox.critical(self, "Ошибка", str(e))
-            self.log(f"❌ Ошибка: {e}")
+            self.log(f" Ошибка: {e}")
 
     def refresh_data(self):
         with Session(engine) as session:
@@ -597,7 +597,7 @@ class MainWindow(QMainWindow):
             top = service.top_products(session)
             customers = crud.list_customers(session)
             
-            # ИСПРАВЛЕНИЕ: Загружаем заказы сразу с клиентами, чтобы избежать DetachedInstanceError
+            
             orders = list(session.exec(
                 select(Order).options(selectinload(Order.customer))
             ).all())

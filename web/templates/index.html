@@ -4,7 +4,7 @@
 
 <section class="grid">
     <div class="card">
-        <h2>📁 Категории</h2>
+        <h2> Категории</h2>
         <form method="post" action="/categories">
             <label>Название категории <input name="name" required placeholder="Например: Молочные продукты"></label>
             <button>Добавить категорию</button>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="card">
-        <h2>📦 Новый товар</h2>
+        <h2> Новый товар</h2>
         <form method="post" action="/products">
             <label>Название <input name="name" required placeholder="Молоко 2.5%"></label>
             <label>Цена (₽) <input name="price" type="number" step="0.01" min="0.01" required placeholder="100.00"></label>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="card">
-        <h2>👤 Новый клиент</h2>
+        <h2> Новый клиент</h2>
         <form method="post" action="/customers">
             <label>ФИО <input name="full_name" required placeholder="Иванов Иван"></label>
             <label>Телефон <input name="phone" required placeholder="+7 (999) 123-45-67"></label>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="card">
-        <h2>🛒 Создать заказ</h2>
+        <h2> Создать заказ</h2>
         <form method="post" action="/orders">
             <label>Клиент
                 <select name="customer_id" required>
@@ -63,7 +63,7 @@
 </section>
 
 <section class="card">
-    <h2>📊 Аналитика</h2>
+    <h2> Аналитика</h2>
     <div class="charts">
         <div style="position: relative; height: 250px; width: 100%;">
             <canvas id="ordersChart"></canvas>
@@ -75,7 +75,7 @@
 </section>
 
 <section class="card">
-    <h2>📋 Товары на складе</h2>
+    <h2> Товары на складе</h2>
     <table>
         <thead><tr><th>ID</th><th>Название</th><th>Цена</th><th>Остаток</th><th>Категория</th></tr></thead>
         <tbody>
@@ -95,7 +95,7 @@
 </section>
 
 <section class="card">
-    <h2>🚚 Последние заказы</h2>
+    <h2> Последние заказы</h2>
     <table>
         <thead><tr><th>ID</th><th>Дата</th><th>Клиент</th><th>Статус</th></tr></thead>
         <tbody>
