@@ -151,6 +151,7 @@ class MainWindow(QMainWindow):
 
         self.tabs = QTabWidget()
         self.setCentralWidget(self.tabs)
+        self.create_menu()
 
         # Вкладка 1: Товары
         self.tab_main = QWidget()
@@ -184,6 +185,28 @@ class MainWindow(QMainWindow):
 
         self.refresh_data()
 
+    def create_menu(self):
+        menubar = self.menuBar()
+        
+        # Меню "Файл"
+        file_menu = menubar.addMenu("Файл")
+        exit_action = file_menu.addAction("Выход")
+        exit_action.triggered.connect(self.close)
+        
+        # Меню "Справка"
+        help_menu = menubar.addMenu("Справка")
+        about_action = help_menu.addAction("О программе")
+        about_action.triggered.connect(self.show_about)
+        
+    def show_about(self):
+        QMessageBox.about(
+            self, 
+            "О программе", 
+            "Product Delivery App\n\n"
+            "MVP-система управления доставкой продуктов.\n"
+            "Разработано в рамках лабораторной работы №3.\n"
+            "Стек: Python, PySide6, FastAPI, PostgreSQL."
+        )
     def setup_main_tab(self):
         layout = QVBoxLayout(self.tab_main)
         layout.setSpacing(20)
